@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
+	private String texto;
 	
 	@RequestMapping("/")
 	@ResponseBody 
@@ -16,9 +17,20 @@ public class HelloController {
 	@RequestMapping("/teste")
 	@ResponseBody
 	public String mundo( ) {
-		return "Ola mundo";
+		chamar("ola");
+		chamar("ola", "glauber");		
+		return this.texto;
 	}
 
+	
+	public void chamar(String texto) {
+		this.texto= texto;
+	}
+	
+	public void chamar(String texto, String nome) {
+		this.texto= texto + "" +  nome;
+	}
 }
+
 
 
